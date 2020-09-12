@@ -1,7 +1,11 @@
+import asyncio
 import time
 import uuid
 
+import uvloop
 from aiohttp import web
+
+asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
 routes = web.RouteTableDef()
 
