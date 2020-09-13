@@ -2,12 +2,17 @@ import asyncio
 import time
 import uuid
 
+import sanic.log
 import uvloop
 from sanic import Sanic
 from sanic import response
 
 asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
-app = Sanic(__name__)
+
+log_config = sanic.log.LOGGING_CONFIG_DEFAULTS
+del log_config['loggers']['sanic.access']
+
+app = Sanic(__name__, log_config=log_config)
 
 
 @app.route("/")
