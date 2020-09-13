@@ -3,7 +3,7 @@ version: "3.7"
 services:
   flask:
     build: uwsgi
-    container_name: uwsgi
+    container_name: gnuicorn_gevent
     restart: always
     environment:
       - APP_NAME=Flask
